@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/study/src",
+  "sourceRoot": "apps/core/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,17 +9,16 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/study",
-        "index": "apps/study/src/index.html",
+        "outputPath": "dist/apps/core",
+        "index": "apps/core/src/index.html",
         "baseHref": "/",
-        "main": "apps/study/src/main.tsx",
-        "polyfills": "apps/study/src/polyfills.ts",
-        "tsConfig": "apps/study/tsconfig.app.json",
-        "assets": ["apps/study/src/favicon.ico", "apps/study/src/assets"],
-        "styles": ["apps/study/src/styles.css"],
+        "main": "apps/core/src/main.tsx",
+        "polyfills": "apps/core/src/polyfills.ts",
+        "tsConfig": "apps/core/tsconfig.app.json",
+        "assets": ["apps/core/src/favicon.ico", "apps/core/src/assets"],
+        "styles": ["apps/core/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack",
-        "postcssConfig": "apps/study/postcss.config.js"
+        "webpackConfig": "@nrwl/react/plugins/webpack"
       },
       "configurations": {
         "development": {
@@ -31,8 +30,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/study/src/environments/environment.ts",
-              "with": "apps/study/src/environments/environment.prod.ts"
+              "replace": "apps/core/src/environments/environment.ts",
+              "with": "apps/core/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -48,16 +47,15 @@
       "executor": "@nrwl/web:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "study:build",
-        "hmr": true,
-        "proxyConfig": "apps/study/proxy.conf.json"
+        "buildTarget": "core:build",
+        "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "study:build:development"
+          "buildTarget": "core:build:development"
         },
         "production": {
-          "buildTarget": "study:build:production",
+          "buildTarget": "core:build:production",
           "hmr": false
         }
       }
@@ -66,17 +64,17 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/study/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/core/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/study"],
+      "outputs": ["coverage/apps/core"],
       "options": {
-        "jestConfig": "apps/study/jest.config.ts",
+        "jestConfig": "apps/core/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": []
+  "tags": ["jojo"]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "nx-study",
+  "name": "nx-core",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -16,6 +16,7 @@
     "core-js": "^3.6.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "6.3.0",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
     "rxjs": "^7.0.0",
@@ -40,6 +41,7 @@
     "@types/node": "16.11.7",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
+    "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "autoprefixer": "10.4.7",

@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "nx-study",
+  "npmScope": "nx-core",
   "affected": {
     "defaultBase": "main"
   },
@@ -48,5 +48,5 @@
       }
     }
   },
-  "defaultProject": "study"
+  "defaultProject": "core"
 }
