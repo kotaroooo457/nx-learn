@@ -1,20 +1,20 @@
-import * as React from 'react'
+import * as React from 'react';
 
 import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
-} from '@tanstack/react-table'
+} from '@tanstack/react-table';
 
 type Person = {
-  firstName: string
-  lastName: string
-  age: number
-  visits: number
-  status: string
-  progress: number
-}
+  firstName: string;
+  lastName: string;
+  age: number;
+  visits: number;
+  status: string;
+  progress: number;
+};
 
 const defaultData: Person[] = [
   {
@@ -41,57 +41,57 @@ const defaultData: Person[] = [
     status: 'Complicated',
     progress: 10,
   },
-]
+];
 
-const columnHelper = createColumnHelper<Person>()
+const columnHelper = createColumnHelper<Person>();
 
 const columns = [
   columnHelper.accessor('firstName', {
-    cell: info => info.getValue(),
-    footer: info => info.column.id,
+    cell: (info) => info.getValue(),
+    footer: (info) => info.column.id,
   }),
-  columnHelper.accessor(row => row.lastName, {
+  columnHelper.accessor((row) => row.lastName, {
     id: 'lastName',
-    cell: info => <i>{info.getValue()}</i>,
+    cell: (info) => <i>{info.getValue()}</i>,
     header: () => <span>Last Name</span>,
-    footer: info => info.column.id,
+    footer: (info) => info.column.id,
   }),
   columnHelper.accessor('age', {
     header: () => 'Age',
-    cell: info => info.renderValue(),
-    footer: info => info.column.id,
+    cell: (info) => info.renderValue(),
+    footer: (info) => info.column.id,
   }),
   columnHelper.accessor('visits', {
     header: () => <span>Visits</span>,
-    footer: info => info.column.id,
+    footer: (info) => info.column.id,
   }),
   columnHelper.accessor('status', {
     header: 'Status',
-    footer: info => info.column.id,
+    footer: (info) => info.column.id,
   }),
   columnHelper.accessor('progress', {
     header: 'Profile Progress',
-    footer: info => info.column.id,
+    footer: (info) => info.column.id,
   }),
-]
+];
 
-const Table: React.FC =() => {
-  const [data, setData] = React.useState(() => [...defaultData])
-  const rerender = React.useReducer(() => ({}), {})[1]
+const Table: React.FC = () => {
+  const [data, setData] = React.useState(() => [...defaultData]);
+  const rerender = React.useReducer(() => ({}), {})[1];
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-  })
+  });
 
   return (
     <div className="p-2">
       <table>
         <thead>
-          {table.getHeaderGroups().map(headerGroup => (
+          {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
-              {headerGroup.headers.map(header => (
+              {headerGroup.headers.map((header) => (
                 <th key={header.id}>
                   {header.isPlaceholder
                     ? null
@@ -105,9 +105,9 @@ const Table: React.FC =() => {
           ))}
         </thead>
         <tbody>
-          {table.getRowModel().rows.map(row => (
+          {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
-              {row.getVisibleCells().map(cell => (
+              {row.getVisibleCells().map((cell) => (
                 <td key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
@@ -116,9 +116,9 @@ const Table: React.FC =() => {
           ))}
         </tbody>
         <tfoot>
-          {table.getFooterGroups().map(footerGroup => (
+          {table.getFooterGroups().map((footerGroup) => (
             <tr key={footerGroup.id}>
-              {footerGroup.headers.map(header => (
+              {footerGroup.headers.map((header) => (
                 <th key={header.id}>
                   {header.isPlaceholder
                     ? null
@@ -137,7 +137,7 @@ const Table: React.FC =() => {
         Rerender
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;
