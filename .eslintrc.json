@@ -23,24 +23,13 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": [
-        "plugin:@nrwl/nx/typescript",
-        "plugin:tailwindcss/recommended"
-      ],
+      "extends": ["plugin:@nrwl/nx/typescript", "plugin:tailwindcss/recommended"],
       "rules": {
         "sort-imports": 0,
         "import/order": [
           "error",
           {
-            "groups": [
-              "builtin",
-              "external",
-              "parent",
-              "sibling",
-              "index",
-              "object",
-              "type"
-            ],
+            "groups": ["builtin", "external", "parent", "sibling", "index", "object", "type"],
             "pathGroups": [
               {
                 "pattern": "@alias/**",
