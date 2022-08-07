@@ -8,13 +8,14 @@
     "build": "nx build",
     "test": "nx test",
     "format": "prettier --write .",
+    "lint:all": "nx run-many --target=lint --all --verbose",
     "lint": "nx affected --target=lint --verbose",
     "prepare": "husky install"
   },
   "lint-staged": {
     "{apps,libs}/**/*.{js,ts,jsx,tsx}": [
-      "npm run lint --uncommitted --fix true",
-      "npm run format --uncommitted"
+      "nx lint --uncommitted --fix true",
+      "prettier --write . --uncommitted"
     ]
   },
   "private": true,
