@@ -1,11 +1,10 @@
-import * as React from 'react';
-
 import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import * as React from 'react';
 
 type Person = {
   firstName: string;

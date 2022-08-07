@@ -1,9 +1,9 @@
 import './App.css';
-import Table from '@Study/core/pages/table';
-import NxWelcome from './nx-welcome';
-
 import { Route, Routes } from 'react-router-dom';
 
+import Table from '../pages/table';
+
+import NxWelcome from './nx-welcome';
 export function App() {
   return (
     <>
