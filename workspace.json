@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "components": "libs/components",
     "core": "apps/core",
     "core-e2e": "apps/core-e2e"
   }
