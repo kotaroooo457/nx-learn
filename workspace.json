@@ -4,6 +4,7 @@
   "projects": {
     "api": "apps/api",
     "components": "libs/components",
+    "components-e2e": "apps/components-e2e",
     "core": "apps/core",
     "core-e2e": "apps/core-e2e"
   }
