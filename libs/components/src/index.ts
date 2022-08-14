@@ -1,1 +1,2 @@
-export * from './lib/Components';
+export * from './lib/Elements/Button';
+export * from './lib/Elements/Input';
