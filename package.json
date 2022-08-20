@@ -10,10 +10,17 @@
     "format": "prettier --write .",
     "lint:all": "nx run-many --target=lint --all --verbose",
     "lint": "nx affected --target=lint --verbose",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged", 
+      "pre-push": "npm run lint"
+    }
   },
   "lint-staged": {
-    "{apps,libs}/**/*.{js,ts,jsx,tsx}": [
+    "{apps,libs}/**/*.{js,ts,jsx,tsx}":  [
       "nx lint --uncommitted --fix true",
       "prettier --write . --uncommitted"
     ]
