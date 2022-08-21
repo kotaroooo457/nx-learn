@@ -47,13 +47,13 @@ const columnHelper = createColumnHelper<Person>();
 
 const columns = [
   columnHelper.accessor('firstName', {
-    cell: (info) => info.getValue(),
+    cell: (info) => info.getValue(), // Columnの改行 table or row
     footer: (info) => info.column.id,
   }),
   columnHelper.accessor((row) => row.lastName, {
     id: 'lastName',
     cell: (info) => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
+    header: () => <span>Last Name</span>, // HTML要素の埋め込み
     footer: (info) => info.column.id,
   }),
   columnHelper.accessor('age', {
@@ -70,7 +70,7 @@ const columns = [
     footer: (info) => info.column.id,
   }),
   columnHelper.accessor('progress', {
-    header: 'Profile Progress',
+    header: 'Profile',
     footer: (info) => info.column.id,
   }),
 ];
@@ -106,7 +106,9 @@ export const Basic = () => {
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+                  <td key={cell.id} className="border border-black">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
                 ))}
               </tr>
             ))}
