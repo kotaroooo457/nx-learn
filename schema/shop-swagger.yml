@@ -1,0 +1,250 @@
+openapi: 3.0.3
+info:
+  description: leran example swagger
+  version: 'v0.0.1'
+  title: dashboard API
+servers: # APIのサーバー指定
+  - url: https://dev.kotaro-shop.com/v1
+    description: Development server
+paths:
+  /shops:
+    get:
+      tags:
+        - 'shops'
+      summary: fetch shops
+      parameters:
+        - $ref: '#/components/parameters/Authorization' #コンポーネント参照($ref)
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          $ref: '#/components/responses/Shops'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+
+    post:
+      tags:
+        - 'shops'
+      summary: create shops
+      parameters: []
+      requestBody:
+        description: 登録したい店舗一覧
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: 店舗情報
+      responses:
+        '201':
+          description: created shops from csv file.
+  /shops/{shopId}:
+    parameters:
+      - $ref: '#/components/parameters/shopId'
+    get:
+      summary: ショップ詳細
+      description: ショップの詳細を取得する
+      tags:
+        - 'shops'
+      responses:
+        '200':
+          $ref: '#/components/responses/ShopDetail'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+      parameters:
+        - $ref: '#/components/parameters/Authorization'
+    put:
+      tags:
+        - 'shops'
+      summary: Update a shop by ID
+      parameters:
+        - in: path
+          name: shopId
+          description: 'shop identifier'
+          schema:
+            type: string
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - 'shops'
+      summary: Delete a shop by ID
+      parameters:
+        - in: path
+          name: shopId
+          description: 'shop identifier'
+          schema:
+            type: string
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: OK
+
+tags:
+  - name: shops
+components:
+  schemas:
+    Shop:
+      title: Shop
+      type: object
+      description: 店舗
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        telephoneNumber:
+          type: string
+        zipCode:
+          type: string
+        prefecture:
+          type: string
+        city:
+          type: string
+        businessHoursDescription:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        address:
+          type: string
+        status:
+          type: string
+        isPublic:
+          type: boolean
+        originalItems:
+          type: object
+      x-examples:
+        example-1:
+          id: '1'
+          name: 'ドラッグストア渋谷店'
+          telephoneNumber: '03-1234-5678'
+          zipCode: '1500042'
+          prefecture: '東京都'
+          city: '渋谷区宇田川町'
+          businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 18:30"
+          latitude: 35.6618981
+          longitude: 139.6968308
+          address: '東京都渋谷区宇田川町４０−１'
+          status: OPEN
+          isPublic: true
+
+  parameters:
+    limit:
+      name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 10
+      description: 1ページあたりの最大表示件数
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 1
+      description: 何件目から取得するか
+    Authorization:
+      name: Authorization
+      in: header
+      required: false
+      schema:
+        type: string
+      description: 認証情報
+    shopId:
+      name: shopId
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: ショップID
+
+  responses:
+    Shops:
+      description: ショップ一覧のレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Shop'
+          examples:
+            example-1:
+              value:
+                data:
+                  - id: 1
+                    name: 'ドラッグストア渋谷店'
+                    telephoneNumber: '03-1234-5678'
+                    zipCode: '1500042'
+                    prefecture: '東京都'
+                    city: '渋谷区宇田川町'
+                    businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 18:30"
+                    latitude: 35.6618981
+                    longitude: 139.6968308
+                    address: '東京都渋谷区宇田川町４０−１'
+                    status: OPEN
+                    isPublic: true
+                  - id: 2
+                    name: 'サンドラッグ 新宿中央東口店'
+                    telephoneNumber: '03-5361-7037'
+                    zipCode: '1600022'
+                    prefecture: '東京都'
+                    city: '新宿区'
+                    businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 20:00"
+                    latitude: 35.691458
+                    longitude: 139.702206
+                    address: '新宿３丁目２６−２ 中央口三平ビル １階'
+                    status: OPEN
+                    isPublic: true
+                  - id: 3
+                    name: '薬 マツモトキヨシ 錦糸町駅ビル店'
+                    telephoneNumber: '03-3635-8699'
+                    zipCode: '1300022'
+                    prefecture: '東京都'
+                    city: '墨田区'
+                    businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 21:00"
+                    latitude: 35.696447
+                    longitude: 139.813927
+                    address: '東京都墨田区江東橋３丁目１４−５'
+                    status: CLOSE
+                    isPublic: true
+    ShopDetail:
+      description: ショップ詳細のレスポンス
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Shop'
+          examples:
+            example-1:
+              value:
+                id: 1
+                name: 'ドラッグストア渋谷店'
+                telephoneNumber: '03-1234-5678'
+                zipCode: '1500042'
+                prefecture: '東京都'
+                city: '渋谷区宇田川町'
+                businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 18:30"
+                latitude: 35.6618981
+                longitude: 139.6968308
+                address: '東京都渋谷区宇田川町４０−１'
+                status: OPEN
+                isPublic: true
