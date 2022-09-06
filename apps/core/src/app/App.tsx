@@ -1,12 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Table from '../pages/table';
+import { Shops } from '../pages/Shops';
 
 export function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Table />} />
-    </Routes>
+    <div className="mt-20 px-20">
+      <Routes>
+        <Route path="/" element={<Shops />} />
+      </Routes>
+    </div>
   );
 }
 

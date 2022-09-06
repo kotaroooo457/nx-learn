@@ -1,5 +1,5 @@
-import firebase from 'firebase/app';
 import 'firebase/auth';
+import firebase from 'firebase/compat/app';
 
 const firebaseConfig = {
   apiKey: process.env['NX_FIREBASE_API_KEY'],
