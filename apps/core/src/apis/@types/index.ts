@@ -25,12 +25,5 @@ export type Shop = {
   name?: string | undefined;
   telephoneNumber?: string | undefined;
   zipCode?: string | undefined;
-  prefecture?: string | undefined;
-  city?: string | undefined;
-  businessHoursDescription?: string | undefined;
-  latitude?: number | undefined;
-  longitude?: number | undefined;
   address?: string | undefined;
-  status?: string | undefined;
-  isPublic?: boolean | undefined;
 };

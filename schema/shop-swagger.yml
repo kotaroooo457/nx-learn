@@ -110,38 +110,15 @@ components:
           type: string
         zipCode:
           type: string
-        prefecture:
-          type: string
-        city:
-          type: string
-        businessHoursDescription:
-          type: string
-        latitude:
-          type: number
-        longitude:
-          type: number
         address:
           type: string
-        status:
-          type: string
-        isPublic:
-          type: boolean
-        originalItems:
-          type: object
       x-examples:
         example-1:
           id: '1'
           name: 'ドラッグストア渋谷店'
           telephoneNumber: '03-1234-5678'
           zipCode: '1500042'
-          prefecture: '東京都'
-          city: '渋谷区宇田川町'
-          businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 18:30"
-          latitude: 35.6618981
-          longitude: 139.6968308
           address: '東京都渋谷区宇田川町４０−１'
-          status: OPEN
-          isPublic: true
 
   parameters:
     limit:
@@ -192,41 +169,23 @@ components:
               value:
                 data:
                   - id: 1
-                    name: 'ドラッグストア渋谷店'
-                    telephoneNumber: '03-1234-5678'
-                    zipCode: '1500042'
-                    prefecture: '東京都'
-                    city: '渋谷区宇田川町'
-                    businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 18:30"
-                    latitude: 35.6618981
-                    longitude: 139.6968308
-                    address: '東京都渋谷区宇田川町４０−１'
-                    status: OPEN
-                    isPublic: true
+                    name: 'ドラッグストア'
+                    telephoneNumber: '00-0000-0000'
+                    zipCode: '0000000'
+                    address: '東京都渋谷区'
+
                   - id: 2
-                    name: 'サンドラッグ 新宿中央東口店'
-                    telephoneNumber: '03-5361-7037'
-                    zipCode: '1600022'
-                    prefecture: '東京都'
-                    city: '新宿区'
-                    businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 20:00"
-                    latitude: 35.691458
-                    longitude: 139.702206
-                    address: '新宿３丁目２６−２ 中央口三平ビル １階'
-                    status: OPEN
-                    isPublic: true
+                    name: 'サンドラッグ'
+                    telephoneNumber: '11-1111-1111'
+                    zipCode: '1111111'
+                    address: '新宿３丁目'
+
                   - id: 3
-                    name: '薬 マツモトキヨシ 錦糸町駅ビル店'
-                    telephoneNumber: '03-3635-8699'
-                    zipCode: '1300022'
-                    prefecture: '東京都'
-                    city: '墨田区'
-                    businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 21:00"
-                    latitude: 35.696447
-                    longitude: 139.813927
-                    address: '東京都墨田区江東橋３丁目１４−５'
-                    status: CLOSE
-                    isPublic: true
+                    name: 'マツモトキヨシ'
+                    telephoneNumber: '22-2222-2222'
+                    zipCode: '2222222'
+                    address: '東京都墨田区'
+
     ShopDetail:
       description: ショップ詳細のレスポンス
       content:
@@ -237,14 +196,7 @@ components:
             example-1:
               value:
                 id: 1
-                name: 'ドラッグストア渋谷店'
-                telephoneNumber: '03-1234-5678'
-                zipCode: '1500042'
-                prefecture: '東京都'
-                city: '渋谷区宇田川町'
-                businessHoursDescription: "平日 10:00 ~ 19:00\n休日 10:00 ~ 18:30"
-                latitude: 35.6618981
-                longitude: 139.6968308
-                address: '東京都渋谷区宇田川町４０−１'
-                status: OPEN
-                isPublic: true
+                name: 'ドラッグストア'
+                telephoneNumber: '00-0000-0000'
+                zipCode: '0000000'
+                address: '東京都渋谷区'

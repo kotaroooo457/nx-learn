@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Shops /> 正常にレンダリングできる 1`] = `
+<div>
+  <div>
+    <div>
+      Shops
+    </div>
+    <ul
+      class="flex justify-center"
+    >
+      <li>
+        ドラッグストア
+      </li>
+      <li>
+        サンドラッグ
+      </li>
+      <li>
+        マツモトキヨシ
+      </li>
+    </ul>
+  </div>
+</div>
+`;

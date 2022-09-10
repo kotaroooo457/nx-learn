@@ -6,10 +6,7 @@ import type { Methods as Methods1 } from './_shopId@number';
 import type { Methods as Methods0 } from '.';
 
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
-  const prefix = (baseURL === undefined ? 'https://dev.kotaro-shop.com/v1' : baseURL).replace(
-    /\/$/,
-    ''
-  );
+  const prefix = (baseURL === undefined ? '' : baseURL).replace(/\/$/, '');
   const PATH0 = '/shops';
   const GET = 'GET';
   const POST = 'POST';
