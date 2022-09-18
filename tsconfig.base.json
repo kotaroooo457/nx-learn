@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@Table/*": ["apps/table/src/*"],
-      "@Components/*": ["libs/components/src/*"]
+      "@Components/*": ["libs/components/src/*"],
     }
   },
   "exclude": ["node_modules", "tmp"]
