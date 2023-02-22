@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "core": "nx serve core",
-    "api": "nx serve api",
     "aspida": "aspida && aspida-mock",
     "mock-server": "prism mock ./schema/shop-swagger.yml -p 8080",
     "build": "nx run-many --target=build --all",
