@@ -2,11 +2,14 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "boy": "apps/boy",
+    "boy-e2e": "apps/boy-e2e",
     "components": "libs/components",
     "components-e2e": "apps/components-e2e",
     "core": "apps/core",
     "core-e2e": "apps/core-e2e",
     "girl": "apps/girl",
-    "girl-e2e": "apps/girl-e2e"
+    "girl-e2e": "apps/girl-e2e",
+    "utils": "libs/utils"
   }
 }

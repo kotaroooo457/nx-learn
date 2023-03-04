@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "core": "nx serve core",
+    "dev-girl": "nx serve girl",
+    "dev-boy": "nx serve boy",
     "aspida": "aspida && aspida-mock",
     "mock-server": "prism mock ./schema/shop-swagger.yml -p 8080",
     "build": "nx run-many --target=build --all",
@@ -11,20 +13,7 @@
     "format": "prettier --write .",
     "lint:all": "nx run-many --target=lint --all --verbose",
     "lint": "nx affected --target=lint --verbose",
-    "prepare": "husky install",
-    "lint-staged": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run lint"
-    }
-  },
-  "lint-staged": {
-    "{apps,libs}/**/*.{js,ts,jsx,tsx}": [
-      "nx lint --uncommitted --fix true",
-      "prettier --write . --uncommitted"
-    ]
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
